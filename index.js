@@ -1,8 +1,11 @@
 'use strict';
+require('hazardous');
+const path = require('path');
 const execa = require('execa');
 const isPng = require('is-png');
 const isStream = require('is-stream');
-const pngquant = require('pngquant-bin');
+let pngquant = require('pngquant-bin');
+pngquant = path.join(pngquant, "");
 
 module.exports = (options = {}) => input => {
 	const isBuffer = Buffer.isBuffer(input);
